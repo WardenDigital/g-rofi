@@ -22,12 +22,12 @@ func (b *BraveBrowser) Open(url string) error {
 }
 
 func (b *BraveBrowser) OpenInNewWindow(url string) error {
-	exec.Command("brave-browser", "--new-window", url).Start()
+	exec.Command(b.binaryPath, "--new-window", url).Start()
 	return nil
 }
 
 func (b *BraveBrowser) OpenInIncognito(url string) error {
-	exec.Command("brave-browser", "--incognito", url).Start()
+	exec.Command(b.binaryPath, "--incognito", url).Start()
 	return nil
 }
 
