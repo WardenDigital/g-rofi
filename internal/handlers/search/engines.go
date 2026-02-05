@@ -9,3 +9,8 @@ type GoogleSearch struct{}
 func (g *GoogleSearch) Search(query string) (string, error) {
 	return "https://www.google.com/search?q=" + query, nil
 }
+
+func NewSearchEngine(name string) SearchEngine {
+	// Currently only GoogleSearch is implemented
+	return &GoogleSearch{}
+}

@@ -14,12 +14,16 @@ var browserSearchCmd = &cobra.Command{
 	Short: "Search using the browser",
 	Long:  `This command allows you to perform a search using your default web browser.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		search.Search()
+		params := cmd.Flags()
+		search.Search(params.Lookup("browser").Value.String(), params.Lookup("engine").Value.String())
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(browserSearchCmd)
+
+	browserSearchCmd.Flags().StringP("browser", "b", "brave-browser", "Specify the browser to use for searching")
+	browserSearchCmd.Flags().StringP("engine", "e", "google", "Specify the search engine to use")
 
 	// Here you will define your flags and configuration settings.
 

@@ -1,6 +1,9 @@
 package search
 
-import "os/exec"
+import (
+	"os/exec"
+	"strings"
+)
 
 type Browser interface {
 	Open(url string) error
@@ -8,10 +11,12 @@ type Browser interface {
 	OpenInIncognito(url string) error
 }
 
-type BraveBrowser struct{}
+type BraveBrowser struct {
+	binaryPath string
+}
 
 func (b *BraveBrowser) Open(url string) error {
-	exec.Command("brave-browser", url).Start()
+	exec.Command(b.binaryPath, url).Start()
 
 	return nil
 }
@@ -24,4 +29,18 @@ func (b *BraveBrowser) OpenInNewWindow(url string) error {
 func (b *BraveBrowser) OpenInIncognito(url string) error {
 	exec.Command("brave-browser", "--incognito", url).Start()
 	return nil
+}
+
+func NewBrowser(n string) Browser {
+	isBrave := strings.Contains("brave-browser", strings.ToLower(n))
+
+	if isBrave {
+		return &BraveBrowser{
+			binaryPath: n,
+		}
+	}
+
+	return &BraveBrowser{
+		binaryPath: "brave-browser",
+	}
 }

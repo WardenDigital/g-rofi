@@ -2,9 +2,9 @@ package search
 
 import "github.com/WardenDigital/rofi-wrapper/internal/rofi"
 
-func Search() {
-	browser := &BraveBrowser{}
-	engine := &GoogleSearch{}
+func Search(b string, e string) {
+	browser := NewBrowser(b)
+	engine := NewSearchEngine(e)
 
 	query, err := rofi.Prompt("Enter search query:")
 
