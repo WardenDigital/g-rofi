@@ -40,16 +40,16 @@
             vendorHash = "sha256-7K17JaXFsjf163g5PXCb5ng2gYdotnZ2IDKk8KFjNj0=";
 
             nativeBuildInputs = with pkgs; [
+              go
               gnumake
               makeWrapper
             ];
+            disallowedRequisites = [ ];
 
             installPhase = ''
-              ls -la
-              make install
               mkdir -p $out/bin
-              cp $GOPATH/bin/g-rofi $out/bin/g-rofi
-              wrapProgram $out/bin/g-rofi --prefix PATH : "${lib.makeBinPath [ pkgs.pciutils ]}"
+              make install
+              mv bin/g-rofi $out/bin/g-rofi
             '';
 
             meta = {

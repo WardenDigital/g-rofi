@@ -5,7 +5,6 @@ INSTALL_DIR=/usr/local/bin
 
 # Go settings
 GO=go
-GOFLAGS=-ldflags="-s -w"
 
 # Version and build info
 VERSION=$(shell git describe --tags --always 2>/dev/null || echo "dev")
@@ -21,14 +20,13 @@ all: build
 build:
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	CGO_ENABLED=0 $(GO) build $(BUILD_LDFLAGS) -o $(BUILD_DIR)/$(BINARY_NAME) $(SOURCE_DIR)/*.go
+	CGO_ENABLED=0 $(GO) build -o $(BUILD_DIR)/$(BINARY_NAME) $(SOURCE_DIR)/*.go
 	@echo "Build complete: $(BUILD_DIR)/$(BINARY_NAME)"
 
 # Install the binary to system path
 install: build
 	@echo "Installing $(BINARY_NAME) to $(INSTALL_DIR)..."
-	@cp $(BUILD_DIR)/$(BINARY_NAME) $(INSTALL_DIR)/$(BINARY_NAME)
-	@chmod +x $(INSTALL_DIR)/$(BINARY_NAME)
+	@chmod +x $(BUILD_DIR)/$(BINARY_NAME)
 	@echo "Installation complete"
 
 # Uninstall the binary from system path
