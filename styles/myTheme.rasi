@@ -1,0 +1,179 @@
+/**
+ * rofi -dump-theme output.
+ * Rofi version: 1.7.1
+ **/
+* {
+    selected-active-foreground:  var(background);
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    separatorcolor:              var(foreground);
+    urgent-foreground:           var(red);
+    alternate-urgent-background: var(lightbg);
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    background-color:            transparent;
+    border-color:                var(foreground);
+    normal-background:           var(surface0);
+    selected-urgent-background:  var(red);
+    alternate-active-background: var(surface0);
+    spacing:                     2;
+    alternate-normal-foreground: var(foreground);
+    urgent-background:           var(background);
+    selected-normal-foreground:  var(lightbg);
+    active-foreground:           var(blue);
+    background:                  transparent;
+    selected-active-background:  var(blue);
+    active-background:           var(background);
+    selected-normal-background:  var(lightfg);
+    alternate-normal-background: var(lightbg);
+    foreground:                  rgba ( 0, 43, 54, 100 % );
+    selected-urgent-foreground:  var(background);
+    normal-foreground:           var(foreground);
+    alternate-urgent-foreground: var(red);
+    alternate-active-foreground: var(blue);
+
+    rosewater : #f5e0dc;
+	flamingo : #f2cdcd;
+	pink : #f5c2e7;
+	mauve : #cba6f7;
+	red : #f38ba8;
+	maroon : #eba0ac;
+	peach : #fab387;
+	yellow : #f9e2af;
+	green : #a6e3a1;
+	teal : #94e2d5;
+	sky : #89dceb;
+	sapphire : #74c7ec;
+	blue : #89b4fa;
+	lavender : #b4befe;
+	text : #cdd6f4;
+	subtext1 : #bac2de;
+	subtext0 : #a6adc8;
+	overlay2 : #9399b2;
+	overlay1 : #7f849c;
+	overlay0 : #6c7086;
+	surface2 : #585b70;
+	surface1 : #45475a;
+	surface0 : #313244;
+	base : #1e1e2e;
+	mantle : #181825;
+	crust : #11111b;
+}
+
+window {
+    border-radius:      8px;
+    padding:            10px;
+    border:             2px;
+    border-color:       var(lavender);
+    padding:            10px;
+    transparency: "real";
+    background-color: rgba(49, 50, 68, 0.8);
+}
+
+mainbox {
+    padding: 0;
+    border:  0;
+}
+message {
+    padding:      1px ;
+    border-color: var(separatorcolor);
+}
+textbox {
+    text-color: var(foreground);
+}
+// Select list 
+listview {
+    padding:      10px 0px 0px ;
+    scrollbar:    false;
+    border-color: var(separatorcolor);
+    spacing:      2px ;
+    dynamic:      true;
+    fixed-columns: false;
+}
+
+element {
+    padding: 4px;
+    border-radius: 10px;
+    cursor:  pointer;
+    margin: 2px 0 2px 0;
+    border:  0;
+    background-color: transparent;
+    text-color: var(lavender);
+}
+
+element selected {
+    text-color:       var(text);
+    border: 2px;
+    border-color: var(lavender);
+}
+
+element-text {
+    padding: 2px; 
+    cursor:           inherit;
+    highlight:        inherit;
+    text-color:       inherit;
+    text-shadow: 1px 1px 2px;
+}
+element-icon {
+    size:             2em ;
+    padding:          2px;
+    cursor:           inherit;
+    text-color:       inherit;
+}
+scrollbar {}
+
+sidebar {
+    border-color: var(separatorcolor);
+    border:       2px dash 0px 0px ;
+}
+button {
+    cursor:     pointer;
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+button selected {
+    background-color: var(selected-normal-background);
+    text-color:       var(selected-normal-foreground);
+}
+num-filtered-rows {
+    expand:     false;
+    text-color: var(lavender);
+}
+num-rows {
+    expand:     false;
+    text-color: var(lavender);
+}
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: var(lavender);
+}
+inputbar {
+    padding:    1px ;
+    spacing:    0px ;
+    text-color: var(normal-foreground);
+    children:   [ prompt,textbox-prompt-colon, entry,num-filtered-rows,textbox-num-sep,num-rows,case-indicator ];
+}
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+entry {
+    padding: 5px;
+    text-color:        var(text);
+    cursor:            text;
+    spacing:           0;
+    placeholder-color: var(subtext0);
+    placeholder:       "Type to filter";
+}
+prompt {
+    spacing:    0;
+    padding: 5px;
+    text-color: var(crust);
+    background-color: var(lavender);
+    border-radius: 5px;
+}
+textbox-prompt-colon {
+    padding:    5px;
+    text-color: var(lavender);
+    expand:     false;
+    str:        ":";
+}

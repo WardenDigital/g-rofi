@@ -1,0 +1,14 @@
+@theme "myTheme"
+
+inputbar {
+    children:   [ prompt,textbox-prompt-colon, entry ];
+}
+
+entry {
+    placeholder: "Awaiting input";
+}
+
+listview {
+    lines: 0;
+    padding: 0;
+}

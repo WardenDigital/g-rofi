@@ -40,16 +40,17 @@
             vendorHash = "sha256-7K17JaXFsjf163g5PXCb5ng2gYdotnZ2IDKk8KFjNj0=";
 
             nativeBuildInputs = with pkgs; [
-              go
-              gnumake
               makeWrapper
             ];
             disallowedRequisites = [ ];
 
-            installPhase = ''
-              mkdir -p $out/bin
-              make install
-              mv bin/g-rofi $out/bin/g-rofi
+            postInstall = ''
+              mkdir -p $out/share/g-rofi/styles
+              cp -r ./styles/* $out/share/g-rofi/styles/
+
+              wrapProgram $out/bin/g-rofi \
+                --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.rofi ]} \
+                --set THEME_DIR "$out/share/g-rofi/styles"
             '';
 
             meta = {
