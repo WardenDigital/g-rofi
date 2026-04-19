@@ -45,7 +45,7 @@
             disallowedRequisites = [ ];
 
             postInstall = ''
-              mkdir -p $out/share/g-rofi/config
+              mkdir -p $out/share/config
               cp -r ./config/* $out/share/config/
 
               wrapProgram $out/bin/g-rofi \
