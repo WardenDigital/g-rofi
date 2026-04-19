@@ -68,5 +68,7 @@
           default = self.packages.${system}.g-rofi;
         }
       );
+
+      homeManagerModules.default = import ./nix/hm-module.nix;
     };
 }

@@ -1,4 +1,4 @@
 .env
 g-rofi
 main
-./result
+result/
