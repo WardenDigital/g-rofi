@@ -1,4 +1,4 @@
-module github.com/WardenDigital/rofi-wrapper
+module github.com/WardenDigital/g-rofi
 
 go 1.25.6
 

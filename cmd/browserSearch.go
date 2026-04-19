@@ -4,7 +4,7 @@ Copyright © 2026 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"github.com/WardenDigital/rofi-wrapper/internal/handlers/search"
+	"github.com/WardenDigital/g-rofi/internal/handlers/search"
 	"github.com/spf13/cobra"
 )
 

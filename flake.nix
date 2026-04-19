@@ -45,12 +45,13 @@
             disallowedRequisites = [ ];
 
             postInstall = ''
-              mkdir -p $out/share/g-rofi/styles
-              cp -r ./styles/* $out/share/g-rofi/styles/
+              mkdir -p $out/share/g-rofi/config
+              cp -r ./config/* $out/share/config/
 
               wrapProgram $out/bin/g-rofi \
                 --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.rofi ]} \
-                --set THEME_DIR "$out/share/g-rofi/styles"
+                --set THEME_DIR "$out/share/config" \
+                --set XDG_DATA_DIRS "$out/share"
             '';
 
             meta = {

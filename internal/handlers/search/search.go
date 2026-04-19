@@ -1,6 +1,6 @@
 package search
 
-import "github.com/WardenDigital/rofi-wrapper/internal/rofi"
+import "github.com/WardenDigital/g-rofi/internal/rofi"
 
 func Search(b string, e string) {
 	browser := NewBrowser(b)

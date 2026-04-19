@@ -3,7 +3,7 @@ package terminal
 import (
 	"os/exec"
 
-	"github.com/WardenDigital/rofi-wrapper/internal/rofi"
+	"github.com/WardenDigital/g-rofi/internal/rofi"
 )
 
 func OneShotCommand() error {
