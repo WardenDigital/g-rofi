@@ -69,6 +69,6 @@
         }
       );
 
-      homeManagerModules.default = import ./nix/hm-module.nix;
+      homeManagerModules.default = import ./nix/hm-module.nix self;
     };
 }

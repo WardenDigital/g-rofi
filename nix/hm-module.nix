@@ -1,4 +1,6 @@
+flake:
 {
+  pkgs,
   config,
   lib,
   ...
@@ -18,7 +20,7 @@ in
 
     configPath = lib.mkOption {
       type = lib.types.nullOr lib.types.path;
-      default = null;
+      default = flake.packages.${pkgs.system}.default;
       description = "Custom path to the rofi config file.";
     };
   };
