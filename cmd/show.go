@@ -1,5 +1,5 @@
 /*
-Copyright © 2026 NAME HERE <EMAIL ADDRESS>
+Copyright © 2026 WardenDigital <wardendigital@proton.me>
 */
 package cmd
 
@@ -9,8 +9,8 @@ import (
 )
 
 var showCmd = &cobra.Command{
-	Use:   "rofi -show",
-	Short: "alias for rofi show",
+	Use:   "show",
+	Short: "Alias for rofi show",
 	Long:  `Rofi show command with one param`,
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
