@@ -9,6 +9,12 @@ import (
 
 const delimiter = "\n"
 
+func Show(title string) ([]byte, error) {
+	cmd := createShowCommand(title)
+
+	return cmd.Output()
+}
+
 func Select(title string, options []string) ([]byte, error) {
 	r, w, err := os.Pipe()
 

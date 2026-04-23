@@ -17,6 +17,12 @@ func createDmenuCommand(title string, r io.Reader) *exec.Cmd {
 	return cmd
 }
 
+func createShowCommand(show string) *exec.Cmd {
+	cmd := exec.Command("rofi", "-config", getConfig(), "-show", show)
+
+	return cmd
+}
+
 func createInlineDmenuCommand(title string, r io.Reader) *exec.Cmd {
 	cmd := exec.Command("rofi", "-config", getConfig(), "-dmenu", "-p", title, "-theme", getTheme(inlineTheme))
 	cmd.Stdin = r

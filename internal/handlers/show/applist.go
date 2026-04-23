@@ -1,12 +1,12 @@
-package terminal
+package show
 
 import (
 	"github.com/WardenDigital/g-rofi/internal/command"
 	"github.com/WardenDigital/g-rofi/internal/rofi"
 )
 
-func OneShotCommand() error {
-	cmd, err := rofi.Prompt("Enter command:")
+func Show(option string) error {
+	cmd, err := rofi.Show(option)
 	if err != nil {
 		return err
 	}
