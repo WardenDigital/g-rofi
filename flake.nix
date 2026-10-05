@@ -35,7 +35,7 @@
         {
           g-rofi = pkgs.buildGoModule (finalAttrs: {
             pname = "g-rofi";
-            version = "0.1.1";
+            version = "0.1.2";
             src = ./.;
             vendorHash = "sha256-7K17JaXFsjf163g5PXCb5ng2gYdotnZ2IDKk8KFjNj0=";
 
