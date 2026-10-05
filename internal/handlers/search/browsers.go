@@ -52,8 +52,9 @@ func (b *LibrewolfBrowser) OpenInIncognito(url string) error {
 }
 
 func NewBrowser(n string) Browser {
-	isBrave := strings.Contains("brave-browser", strings.ToLower(n))
-	isLibrewolf := strings.Contains("librewolf", strings.ToLower(n))
+	name := strings.ToLower(n)
+	isBrave := strings.Contains(name, "brave-browser")
+	isLibrewolf := strings.Contains(name, "librewolf")
 
 	switch true {
 	case isBrave:

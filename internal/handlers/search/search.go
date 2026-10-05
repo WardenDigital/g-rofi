@@ -2,21 +2,17 @@ package search
 
 import "github.com/WardenDigital/g-rofi/internal/rofi"
 
-func Search(b string, e string) {
+func Search(b string, e string) error {
 	browser := NewBrowser(b)
 	engine := NewSearchEngine(e)
 
 	query, err := rofi.Prompt("Enter search query:")
 
 	if err != nil {
-		panic(err)
+		return err
 	}
 
-	err = performSearch(browser, engine, string(query))
-
-	if err != nil {
-		panic(err)
-	}
+	return performSearch(browser, engine, string(query))
 }
 
 func performSearch(b Browser, e SearchEngine, q string) error {

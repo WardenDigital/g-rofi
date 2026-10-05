@@ -13,9 +13,9 @@ var browserSearchCmd = &cobra.Command{
 	Use:   "browserSearch",
 	Short: "Search using the browser",
 	Long:  `This command allows you to perform a search using your default web browser.`,
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		params := cmd.Flags()
-		search.Search(params.Lookup("browser").Value.String(), params.Lookup("engine").Value.String())
+		return search.Search(params.Lookup("browser").Value.String(), params.Lookup("engine").Value.String())
 	},
 }
 

@@ -2,6 +2,7 @@ package command
 
 import (
 	"bytes"
+	"errors"
 	"io"
 	"os"
 	"os/exec"
@@ -60,6 +61,10 @@ func runWithPassword(command string) error {
 		password, err := rofi.Password("Password required:")
 		if err != nil {
 			return err
+		}
+
+		if len(strings.TrimSpace(string(password))) == 0 {
+			return errors.New("password required but no password provided")
 		}
 
 		stderr, err := runShellCommand(command, string(password))

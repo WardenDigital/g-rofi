@@ -1,7 +1,6 @@
 package rofi
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -33,19 +32,12 @@ func Select(title string, options []string) ([]byte, error) {
 	}
 	defer piped.Wait()
 	w.Close()
-	fmt.Println("Piped options string created")
 
 	cmd := createDmenuCommand("Select an option", r)
-	fmt.Println("Rofi command created")
 
 	return cmd.Output()
 }
 
 func createPipedOptionsString(options []string) string {
-	var piped strings.Builder
-	for _, option := range options {
-		piped.WriteString(option + delimiter)
-	}
-
-	return piped.String()
+	return strings.Join(options, delimiter)
 }
