@@ -30,6 +30,13 @@ func createInlineDmenuCommand(title string, r io.Reader) *exec.Cmd {
 	return cmd
 }
 
+func createPasswordDmenuCommand(title string, r io.Reader) *exec.Cmd {
+	cmd := exec.Command("rofi", "-config", getConfig(), "-dmenu", "-password", "-p", title, "-theme", getTheme(inlineTheme))
+	cmd.Stdin = r
+
+	return cmd
+}
+
 func getConfigPath() string {
 	if path := os.Getenv("G_ROFI_CONFIG"); path != "" {
 		return path
