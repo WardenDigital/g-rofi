@@ -15,7 +15,7 @@ in
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = flake.packages.${pkgs.system}.default;
+      default = flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
       description = "The g-rofi package to install.";
     };
 
